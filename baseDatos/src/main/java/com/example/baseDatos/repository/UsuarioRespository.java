@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface mensajeRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByNombreAndApellido(String nombre, String apellido);
     @Query("SELECT u FROM Usuario u WHERE u.nombre = ?1 AND u.apellido = ?2")
     List<Usuario> buscarPorNombreYApellido(String nombre, String apellido);

@@ -1,20 +1,31 @@
 package com.example.baseDatos.tables;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsContructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="mensaje")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 
 public class mensaje {
-    @Id
-    private Integer idMensaje;
-    private String creadorMensaje;
-    private String destinarioMensaje;
-    private LocalDateTime create_atMensaje;
-    private String contenidoMensaje;
+    @Id @GenerateValue(strtegy =GenerationType.AUTO)
 
-    public mensaje() {
-    }
+    private long id_Mensaje;
+    private String creador_Mensaje;
+    private String destinario_Mensaje;
+    private String contenido_Mensaje;
+    @Temporal (TemporalType.TIMESTAMP)
+    private LocalDateTime create_atMensaje;
+    @ManyToOne
+    @JoinColumn(name = "id_Usurio", nullable =false)
+    public Usuario usuario;
+
 }
