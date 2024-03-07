@@ -37,6 +37,7 @@ public class Partida {
     private String comentarios_partida;
     @ManyToMany(mappedBy = "partidas")
     private List<Usuario> usuarios;
+
 }
 
 
