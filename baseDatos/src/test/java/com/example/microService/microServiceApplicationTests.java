@@ -9,5 +9,4 @@ class BaseDatosApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
